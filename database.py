@@ -4,6 +4,6 @@ engine = create_engine("mysql+pymysql://root:HruewmqYXONlznzmaggmlmsjsSqbVLgz@sh
         connect_args={"ssl": {"ssl_ca": "skysql_chain.pem"}})
 
 with engine.connect() as conn:
-      result = conn.execute(text("SELECT * FROM sample"))
+      result = conn.execute(text("SELECT * FROM spendings"))
       rows = result.mappings().all()
       print(rows)

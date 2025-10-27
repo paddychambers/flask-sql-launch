@@ -7,9 +7,20 @@
 <body>
     <h1>Welcome to the Dashboard</h1>
     <p>This is the home page of the website.</p>
-    {% for job in jobs %}
-        <p>{{ job.name }}</p>
-    {% endfor %}
+    <table>
+        <tr>
+            <th>Note</th>
+            <th>Amount</th>
+            <th>Purchase Date</th>
+        </tr>
+        {% for spend in spendings %}
+        <tr>
+            <td>{{ spend.note }}</td>
+            <td>{{ spend.amount }}</td>
+            <td>{{ spend.purchase_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     
 </body>
 
