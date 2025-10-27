@@ -1,11 +1,22 @@
-from flask import *
+from flask import Flask, render_template
+from database import engine
+from sqlalchemy import text
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():
-  return render_template('home.html')
+  jobs = load_jobs_from_db()
+  return render_template('home.html', jobs=jobs)
+
+def load_jobs_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM sample"))
+    jobs = []
+    for row in result.mappings().all():
+      jobs.append(dict(row))
+      return jobs
 
 
 if __name__ == "__main__":

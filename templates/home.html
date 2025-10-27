@@ -7,6 +7,10 @@
 <body>
     <h1>Welcome to the Dashboard</h1>
     <p>This is the home page of the website.</p>
+    {% for job in jobs %}
+        <p>{{ job.name }}</p>
+    {% endfor %}
+    
 </body>
 
 
