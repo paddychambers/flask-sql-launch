@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: "Roboto", Sans-serif;
+}
+
+.bg {
+  background-image: url("../images/background3.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+table {
+  background-image: linear-gradient(45deg, #a497f2, #e1e2f1);
+  color: white;
+  border-collapse: collapse;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  background-color: rgb(238, 117, 124, 0.5);
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+}
+
+tr {
+  transition: background-color 0.2s ease-in, 0.4s ease-out;
+}
+
+th {
+  text-transform: uppercase;
+  padding: 15px;
+  text-align: left;
+}
+
+th.header {
+  text-align: center;
+  font-size: 30px;
+}
+
+td {
+  text-transform: uppercase;
+  padding: 15px;
+  border-bottom-width: 0.2px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(255, 255, 255, 0.5)
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}

@@ -1,29 +1,39 @@
 <!DOCTYE html>
 <html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
     <title>Dashboard</title>
 </head>
 
 <body>
-    <h1>Welcome to the Dashboard</h1>
-    <p>This is the home page of the website.</p>
-    <table>
-        <tr>
-            <th>Note</th>
-            <th>Amount</th>
-            <th>Purchase Date</th>
-        </tr>
-        {% for spend in spendings %}
-        <tr>
-            <td>{{ spend.note }}</td>
-            <td>{{ spend.amount }}</td>
-            <td>{{ spend.purchase_date }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    
+    <div class="bg">
+        <h1>WELCOME PADDY, TO YOUR FINANCE DASHBOARD.</h1>
+
+
+        <table>
+            <tr>
+                <th class="header" colspan=3>SPENDINGS</th>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <th>Amount</th>
+                <th>Purchase Date</th>
+            </tr>
+            {% for spend in spendings %}
+            <tr>
+                <td>{{ spend.note }}</td>
+                <td>${{ spend.amount }}</td>
+                <td>{{ spend.purchase_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
 
+</html>
 
 
   
