@@ -4,6 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["libressl_3_6", "wget", "railway", "u-root-cmds"]
 
 [workflows]
 runButton = "Python"
