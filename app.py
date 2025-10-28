@@ -9,11 +9,18 @@ def load_spends_from_db():
     result = conn.execute(text("SELECT * FROM spendings"))
     spendings = result.mappings().all()
   return spendings
-      
+
+def total_spends_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(text("SELECT SUM(amount) FROM spendings"))
+    total = result.scalar()
+  return total
+
 @app.route('/')
 def hello_world():
   spendings = load_spends_from_db()
-  return render_template('home.html', spendings=spendings)
+  total = total_spends_from_db()
+  return render_template('home.html', spendings=spendings, total=total)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

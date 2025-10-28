@@ -10,10 +10,11 @@
 
 <body>
     <div class="bg">
-        <h1>WELCOME PADDY, TO YOUR FINANCE DASHBOARD.</h1>
+        <div class="header-bar">
+            <h1>WELCOME PADDY, TO YOUR FINANCE DASHBOARD.</h1><h1 id="live-time" class="date_time"></h1>
+        </div>
 
-
-        <table>
+        <table class="list_spendings">
             <tr>
                 <th class="header" colspan=3>SPENDINGS</th>
             </tr>
@@ -23,14 +24,32 @@
                 <th>Purchase Date</th>
             </tr>
             {% for spend in spendings %}
-            <tr>
+            <tr class="spend">
                 <td>{{ spend.note }}</td>
                 <td>${{ spend.amount }}</td>
                 <td>{{ spend.purchase_date }}</td>
             </tr>
             {% endfor %}
+            
         </table>
+
+    <div class="total_spendings">
+        <h4>TOTAL SPENDINGS:</h4> <p>${{ total }}</p>
     </div>
+        
+        <script>
+        function updateTime() {
+          const now = new Date();
+          const formatted = now.toLocaleString('en-GB', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+          });
+          document.getElementById('live-time').textContent = formatted;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+        </script>
+        
 </body>
 
 </html>
